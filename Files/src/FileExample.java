@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class FileExample {
     public static void main(String[] args) {
-        File file = new File("./data.txt");
+        File file = new File("./Files/data.txt");
 
         try (PrintWriter pw = new PrintWriter(file)){
             pw.println("Hej dette er en test");
