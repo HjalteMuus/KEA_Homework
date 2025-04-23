@@ -1,4 +1,9 @@
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class MatchTest {
@@ -60,5 +65,20 @@ class MatchTest {
                            new Match(3, 3, 3)};
         assertEquals("The match with the biggest score difference was match number 1 with a difference of 3 points",
                      Match.winnerByPointsDiff(matches));
+    }
+
+    @Test
+    void sortMatches(){
+        ArrayList<Match> matches = new ArrayList<>();
+        matches.add(new Match(1, 4, 1));
+        matches.add(new Match(3, 3, 3));
+        matches.add(new Match(4, 2, 2));
+
+        ArrayList<Match> sortedMatches = Match.sortMatches(matches);
+        Collections.reverse(sortedMatches);
+
+        assertEquals(3 , sortedMatches.get(0).getScoreDifference());
+        assertEquals(2 , sortedMatches.get(1).getScoreDifference());
+        assertEquals(0 , sortedMatches.get(2).getScoreDifference());
     }
 }

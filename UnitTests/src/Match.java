@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 public class Match {
     private int team1Score;
     private int team2Score;
@@ -64,5 +68,9 @@ public class Match {
                 " with a difference of " + pointsMatch.getScoreDifference() + " points";
     }
 
+    public static ArrayList<Match> sortMatches(ArrayList<Match> matches){
+        matches.sort(Comparator.comparing(Match::getScoreDifference));
+        return matches;
+    }
 
 }
