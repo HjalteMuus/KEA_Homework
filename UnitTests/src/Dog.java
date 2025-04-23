@@ -27,7 +27,7 @@ public class Dog {
         return age * 7;
     }
 
-    public Dog findOldestDog(Dog[] dogList){
+    public static String findOldestDog(Dog[] dogList){
         int oldest = 0;
         Dog oldestDog = null;
         for (int i = 0; i < dogList.length; i++) {
@@ -36,6 +36,10 @@ public class Dog {
                 oldestDog = dogList[i];
             }
         }
-        return oldestDog;
+        if (oldestDog == null){
+            return "No dogs on the list";
+        }
+
+        return "The oldest dog is " + oldestDog.getName();
     }
 }
