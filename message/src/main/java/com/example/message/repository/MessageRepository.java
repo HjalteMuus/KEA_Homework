@@ -10,19 +10,20 @@ import java.util.List;
 // Repository-klassen fungerer som et datalager i hukommelsen.
 // Den opretter 3 beskeder ved opstart og returnerer dem via en metode
 public class MessageRepository {
-    private final List<Message> messages = new ArrayList<>();
+    private final List<Message> messages;
     private int messageId = 1;
 
     public MessageRepository() {
-        populateMessages();
+        this.messages = new ArrayList<>();
+        //populateMessages();
     }
 
-    private void populateMessages() {
-        while (messageId <= 3) {
-            messages.add(new Message(messageId, "Velkommen til " + messageId + ".semester"));
-            messageId++;
-        }
-    }
+//    private void populateMessages() {
+//        while (messageId <= 3) {
+//            messages.add(new Message(messageId, "Velkommen til " + messageId + ".semester"));
+//            messageId++;
+//        }
+//    }
 
     public List<Message> getAllMessages() {
         return messages;
@@ -35,5 +36,12 @@ public class MessageRepository {
             }
         }
         return null;
+    }
+
+    public Message addMessage(Message message){
+        message.setId(messageId);
+        messages.add(message);
+        messageId++;
+        return message;
     }
 }

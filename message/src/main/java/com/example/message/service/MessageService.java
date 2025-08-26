@@ -27,4 +27,9 @@ public class MessageService {
         }
         return message;
     }
+
+    public Message addMessage(Message message){
+        repository.addMessage(message);
+        return message;
+    }
 }

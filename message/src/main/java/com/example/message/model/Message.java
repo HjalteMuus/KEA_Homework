@@ -15,6 +15,10 @@ public class Message {
         return id;
     }
 
+    public void setId(int newId){
+        id = newId;
+    }
+
     public String getContent() {
         return content;
     }
